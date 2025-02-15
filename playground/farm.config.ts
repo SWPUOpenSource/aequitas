@@ -1,8 +1,11 @@
 import { defineConfig } from "@farmfe/core";
 import vue from "@vitejs/plugin-vue";
-import wasm from "vite-plugin-wasm";
-import topLevelAwait from "vite-plugin-top-level-await";
+import wasm from "@farmfe/plugin-wasm";
 
 export default defineConfig({
-  vitePlugins: [vue(), wasm(), topLevelAwait()],
+  plugins: [wasm()],
+  vitePlugins: [vue()],
+  compilation: {
+    presetEnv: false,
+  }
 });
