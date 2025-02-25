@@ -1,7 +1,7 @@
 {
   "name": "aequitas",
-  "version": "0.0.0",
-  "description": "",
+  "version": "0.1.0",
+  "description": "Extremely fast state manager based on WebAssembly",
   "main": "index.js",
   "scripts": {
     "build": "wasm-pack build --target bundler --release --no-default-features",
@@ -9,6 +9,9 @@
     "dev": "pnpm build:debug && cd playground && pnpm dev"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": {
+    "email": "fu050409@163.com",
+    "name": "苏向夜"
+  },
+  "license": "AGPL-3.0-only"
 }

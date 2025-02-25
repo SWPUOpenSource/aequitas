@@ -6,6 +6,9 @@ use js_sys::{Object, Reflect};
 use store::Store;
 use wasm_bindgen::prelude::*;
 
+#[global_allocator]
+static ALLOC: dlmalloc::GlobalDlmalloc = dlmalloc::GlobalDlmalloc;
+
 #[cfg(feature = "debug")]
 use wasm_bindgen_test::console_log;
 
@@ -17,8 +20,7 @@ pub fn enable_debug() {
 
 #[wasm_bindgen]
 pub fn create_store(id: &str, states: &Object) -> Store {
-    #[cfg(feature = "debug")]
-    console_log!("Creating store {}...", id);
+    log::trace!("Creating store {}...", id);
 
     let mut store = Store::new(id.to_string());
 
